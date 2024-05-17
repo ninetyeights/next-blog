@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+export default {
     // othor next config here...
     webpack: config => {
         config.plugins.push(new VeliteWebpackPlugin())
