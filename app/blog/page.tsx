@@ -1,7 +1,7 @@
 import { posts } from "#site/content";
 import { PostItem } from "@/components/post-item";
 import { QueryPagination } from "@/components/query-pagination";
-import { sortPost } from "@/lib/utils";
+import { sortPosts } from "@/lib/utils";
 
 const POSTS_PER_PAGE = 3;
 
@@ -13,7 +13,7 @@ interface BlogPageProps {
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
 	const currentPage = Number(searchParams?.page) || 1;
-	const sortedPosts = sortPost(posts.filter((post) => post.published));
+	const sortedPosts = sortPosts(posts.filter((post) => post.published));
 	const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
 	const displayPosts = sortedPosts.slice(
